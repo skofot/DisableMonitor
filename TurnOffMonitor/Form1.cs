@@ -15,18 +15,56 @@ namespace TurnOffMonitor
     public partial class Form1 : Form
     {
 		private bool minimizeToTray = false;
+		private ContextMenu cont;
+		private MenuItem exit;
+		private MenuItem open;
 
 		public Form1()
         {
             InitializeComponent();
 			LoadOptions();
+
+			cont = new ContextMenu();
+			exit = new MenuItem();
+			exit.Text = "Exit";
+			exit.Click += new System.EventHandler(this.exit_Click);
+
+			open = new MenuItem();
+			open.Text = "Reopen";
+			open.Click += new System.EventHandler(this.open_Click);
+
+			cont.MenuItems.AddRange(
+					new System.Windows.Forms.MenuItem[] { open, exit });
+
+			notifyIcon.ContextMenu = cont;
+
+		}
+
+		private void exit_Click(object sender, EventArgs e)
+		{
+			Application.Exit();
+		}
+
+		private void open_Click(object sender, EventArgs e)
+		{
+			notifyIcon.Visible = false;
+			this.Show();
+			this.WindowState = FormWindowState.Normal;
+
+			this.Focus();
 		}
 
 		private void LoadOptions()
 		{
+
 			if (File.Exists("MonitorOptions.txt"))
 			{
-				
+				string[] options = File.ReadAllLines("MonitorOptions.txt");
+
+				if(options.Length > 0 && options[0] == "True")
+				{
+					checkBoxTray.Checked = true;
+				}
 			}
 			else
 			{
@@ -56,7 +94,6 @@ namespace TurnOffMonitor
 			if (FormWindowState.Minimized == this.WindowState && minimizeToTray)
 			{
 				notifyIcon.Visible = true;
-				notifyIcon.Icon = SystemIcons.Application;
 				this.Hide();
 			}
 			else if (FormWindowState.Normal == this.WindowState)
@@ -72,6 +109,9 @@ namespace TurnOffMonitor
 			if(e.Button == MouseButtons.Left)
 			{
 				SetMonitorState(OFF);
+			}
+			else
+			{
 			}
 		}
 
@@ -130,6 +170,14 @@ namespace TurnOffMonitor
 		private void checkBoxTray_CheckedChanged(object sender, EventArgs e)
 		{
 			minimizeToTray = checkBoxTray.Checked;
+
+			StreamWriter sw = new StreamWriter("MonitorOptions.txt");
+
+			sw.Write(minimizeToTray);
+			sw.Close();
+			sw.Dispose();
+
+
 		}
 
 	}

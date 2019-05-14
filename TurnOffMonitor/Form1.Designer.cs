@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 			this.button1 = new System.Windows.Forms.Button();
 			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
 			this.checkBoxTray = new System.Windows.Forms.CheckBox();
@@ -36,7 +37,7 @@
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(66, 384);
+			this.button1.Location = new System.Drawing.Point(57, 100);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(121, 23);
 			this.button1.TabIndex = 0;
@@ -46,14 +47,14 @@
 			// 
 			// notifyIcon
 			// 
+			this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
 			this.notifyIcon.Text = "notifyIcon1";
-			this.notifyIcon.Visible = true;
 			this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.turnOffFromTray);
 			// 
 			// checkBoxTray
 			// 
 			this.checkBoxTray.AutoSize = true;
-			this.checkBoxTray.Location = new System.Drawing.Point(66, 46);
+			this.checkBoxTray.Location = new System.Drawing.Point(67, 46);
 			this.checkBoxTray.Name = "checkBoxTray";
 			this.checkBoxTray.Size = new System.Drawing.Size(98, 17);
 			this.checkBoxTray.TabIndex = 1;
@@ -65,7 +66,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(268, 436);
+			this.ClientSize = new System.Drawing.Size(239, 144);
 			this.Controls.Add(this.checkBoxTray);
 			this.Controls.Add(this.button1);
 			this.Name = "Form1";
