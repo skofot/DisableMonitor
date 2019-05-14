@@ -69,6 +69,7 @@
 			this.ClientSize = new System.Drawing.Size(239, 144);
 			this.Controls.Add(this.checkBoxTray);
 			this.Controls.Add(this.button1);
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Form1";
 			this.Text = "Monitor";
 			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
