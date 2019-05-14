@@ -28,35 +28,60 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(427, 123);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Form1
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(531, 447);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
-            this.ResumeLayout(false);
+			this.components = new System.ComponentModel.Container();
+			this.button1 = new System.Windows.Forms.Button();
+			this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+			this.checkBoxTray = new System.Windows.Forms.CheckBox();
+			this.SuspendLayout();
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(66, 384);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(121, 23);
+			this.button1.TabIndex = 0;
+			this.button1.Text = "Turn off monitor";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// notifyIcon
+			// 
+			this.notifyIcon.Text = "notifyIcon1";
+			this.notifyIcon.Visible = true;
+			this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.turnOffFromTray);
+			// 
+			// checkBoxTray
+			// 
+			this.checkBoxTray.AutoSize = true;
+			this.checkBoxTray.Location = new System.Drawing.Point(66, 46);
+			this.checkBoxTray.Name = "checkBoxTray";
+			this.checkBoxTray.Size = new System.Drawing.Size(98, 17);
+			this.checkBoxTray.TabIndex = 1;
+			this.checkBoxTray.Text = "Minimize to tray";
+			this.checkBoxTray.UseVisualStyleBackColor = true;
+			this.checkBoxTray.CheckedChanged += new System.EventHandler(this.checkBoxTray_CheckedChanged);
+			// 
+			// Form1
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(268, 436);
+			this.Controls.Add(this.checkBoxTray);
+			this.Controls.Add(this.button1);
+			this.Name = "Form1";
+			this.Text = "Monitor";
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseMove);
+			this.Resize += new System.EventHandler(this.Form1_Resize);
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button button1;
-    }
+		private System.Windows.Forms.NotifyIcon notifyIcon;
+		private System.Windows.Forms.CheckBox checkBoxTray;
+	}
 }
 
