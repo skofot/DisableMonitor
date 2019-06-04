@@ -86,7 +86,6 @@
   <ItemGroup>
     <Content Include="LazyIcon.ico" />
     <Content Include="NiceIcon.ico" />
-    <Content Include="Untitled Diagram %283%29.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
