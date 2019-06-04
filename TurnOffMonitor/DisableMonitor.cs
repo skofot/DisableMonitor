@@ -10,16 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TurnOffMonitor
+namespace DisableMonitor
 {
-    public partial class Form1 : Form
+    public partial class DisableMonitor : Form
     {
 		private bool minimizeToTray = false;
 		private ContextMenu cont;
 		private MenuItem exit;
 		private MenuItem open;
 
-		public Form1()
+		public DisableMonitor()
         {
             InitializeComponent();
 			LoadOptions();
